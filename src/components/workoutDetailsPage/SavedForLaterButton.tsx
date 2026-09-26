@@ -7,10 +7,19 @@ import { toast } from "react-toastify";
 
 const SavedForLaterButton = ({ workout }: { workout: IWorkout }) => {
   const { savedWorkout, setSavedWorkout } = useContext(WorkoutContext);
+  
   const handleSaved = () => {
+    const isDuplicate = savedWorkout.some((w) => w.id === workout.id);
+    
+    if (isDuplicate) {
+      toast.warning("Workout is already in saved plan!");
+      return;
+    }
+
     setSavedWorkout([...savedWorkout, workout]);
     toast.success("Added to Saved plan.")
   };
+
   return (
     <button
       onClick={() => {
