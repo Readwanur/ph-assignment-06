@@ -1,16 +1,24 @@
+'use client'
 import Link from "next/link";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import TodayPlanStats from "../NavbarStats/TodayPlanStats";
 import SavedPlanStats from "../NavbarStats/SavedPlanStats";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   const links = (
     <>
       <li>
         <Link
           href="/"
-          className="flex items-center px-5 py-2 rounded-full bg-[#1a2312] text-[#c2f800] font-semibold transition-colors"
+          className={`flex items-center px-5 py-2 rounded-full transition-colors ${
+            pathname === "/" || pathname.startsWith("/workouts")
+              ? "bg-[#1a2312] text-[#c2f800] font-semibold"
+              : "text-gray-400 font-medium hover:text-[#c2f800] hover:bg-[#1a2312]/60"
+          }`}
         >
           Workouts
         </Link>
@@ -18,7 +26,11 @@ const Navbar = () => {
       <li>
         <Link
           href="/my-plan"
-          className="flex items-center px-5 py-2 rounded-full text-gray-400 font-medium hover:text-[#c2f800] hover:bg-[#1a2312]/60 transition-colors"
+          className={`flex items-center px-5 py-2 rounded-full transition-colors ${
+            pathname === "/my-plan"
+              ? "bg-[#1a2312] text-[#c2f800] font-semibold"
+              : "text-gray-400 font-medium hover:text-[#c2f800] hover:bg-[#1a2312]/60"
+          }`}
         >
           My Plan
         </Link>
