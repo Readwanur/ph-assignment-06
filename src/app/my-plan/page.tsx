@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useContext, useState, useMemo } from "react";
 import { IWorkout } from "@/types/workout.types";
-import { FaCheck, FaTimes, FaChevronDown } from "react-icons/fa";
+import { FaCheck, FaClock, FaTimes, FaFire, FaStar, FaChevronDown } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 type SortOption = "Duration" | "Calories" | "Rating";
@@ -70,28 +70,28 @@ const MyPlanPage = () => {
                   <p className="text-gray-400 text-sm">{workout.equipment || "No equipment specified"}</p>
                   <div className="flex space-x-3 mt-1 text-xs text-gray-400 items-center">
                     <span className="flex items-center space-x-1">
-                      <span className="text-[#c2f800]">⏱</span>
+                      <span className="text-[#c2f800]"><FaClock /></span>
                       <span>{workout.duration || "0"} min</span>
                     </span>
                     <span className="flex items-center space-x-1">
-                      <span className="text-[#c2f800]">🔥</span>
+                      <span className="text-[#c2f800]"><FaFire /></span>
                       <span>{workout.caloriesBurned || "0"} kcal</span>
                     </span>
                     <span className="flex items-center space-x-1">
-                      <span className="text-[#c2f800]">⭐</span>
+                      <span className="text-[#c2f800]"><FaStar /></span>
                       <span>{workout.rating || "0"}</span>
                     </span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
-                <Link href={`/workouts/${workout.id}`} className="text-gray-400 hover:text-white text-sm font-semibold transition-colors mr-2">
+                <Link href={`/workouts/${workout.id}`} className="text-gray-400 border border-gray-700 rounded-full px-6 py-2 hover:text-white text-sm font-semibold transition-colors mr-2">
                   View Details
                 </Link>
-                <button onClick={() => handleMarkAsDone(workout.id)} className="flex items-center gap-2 px-6 py-2 text-sm font-bold rounded-full bg-[#c2f800] hover:bg-[#b3e600] text-black transition-colors">
+                <button onClick={() => handleMarkAsDone(workout.id)} className="flex cursor-pointer items-center gap-2 px-6 py-2 text-sm font-bold rounded-full bg-[#c2f800] hover:bg-[#b3e600] text-black transition-colors">
                   <FaCheck /> Mark as Done
                 </button>
-                <button onClick={() => handleRemove(workout.id)} className="p-2 text-gray-400 hover:text-red-500 transition-colors" title="Remove">
+                <button onClick={() => handleRemove(workout.id)} className="cursor-pointer p-2 text-gray-400 hover:text-red-500 transition-colors" title="Remove">
                   <FaTimes size={18} />
                 </button>
               </div>

@@ -25,7 +25,7 @@ const SavedForLaterButton = ({ workout }: { workout: IWorkout }) => {
       onClick={() => {
         handleSaved();
       }}
-      className="w-full sm:w-auto px-8 py-4 border-2 border-neutral-700 hover:border-neutral-500 text-white font-bold rounded-xl flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-neutral-800/50"
+      className="w-full cursor-pointer sm:w-auto px-8 py-4 border-2 border-neutral-700 hover:border-neutral-500 text-white font-bold rounded-xl flex items-center justify-center gap-2.5 transition-all duration-300 hover:bg-neutral-800/50"
     >
       <FaRegBookmark className="text-xl" />
       Save for later
