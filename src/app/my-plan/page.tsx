@@ -56,8 +56,8 @@ const MyPlanPage = () => {
       return (
         <div className="flex flex-col gap-4 bg-black">
           {workouts.map((workout: IWorkout, idx: number) => (
-            <div key={idx} className="bg-[#1a1d21] rounded-2xl p-4 flex items-center justify-between border border-gray-800">
-              <div className="flex items-center space-x-4">
+            <div key={idx} className="bg-[#1a1d21] rounded-2xl p-4 flex flex-col xl:flex-row xl:items-center justify-between border border-gray-800 gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <div className="w-24 h-16 bg-gray-700 rounded-lg overflow-hidden shrink-0 relative">
                   {workout.image ? (
                     <Image src={workout.image} alt={workout.name || 'Workout'} layout="fill" className="object-cover" />
@@ -84,14 +84,14 @@ const MyPlanPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <Link href={`/workouts/${workout.id}`} className="text-gray-400 border border-gray-700 rounded-full px-6 py-2 hover:text-white text-sm font-semibold transition-colors mr-2">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 xl:gap-4 mt-2 xl:mt-0">
+                <Link href={`/workouts/${workout.id}`} className="text-gray-400 border border-gray-700 rounded-full px-4 py-2 sm:px-6 hover:text-white text-xs sm:text-sm font-semibold transition-colors">
                   View Details
                 </Link>
-                <button onClick={() => handleMarkAsDone(workout.id)} className="flex cursor-pointer items-center gap-2 px-6 py-2 text-sm font-bold rounded-full bg-[#c2f800] hover:bg-[#b3e600] text-black transition-colors">
-                  <FaCheck /> Mark as Done
+                <button onClick={() => handleMarkAsDone(workout.id)} className="flex cursor-pointer items-center gap-1 sm:gap-2 px-4 py-2 sm:px-6 text-xs sm:text-sm font-bold rounded-full bg-[#c2f800] hover:bg-[#b3e600] text-black transition-colors">
+                  <FaCheck className="text-xs sm:text-sm" /> Mark as Done
                 </button>
-                <button onClick={() => handleRemove(workout.id)} className="cursor-pointer p-2 text-gray-400 hover:text-red-500 transition-colors" title="Remove">
+                <button onClick={() => handleRemove(workout.id)} className="cursor-pointer p-2 text-gray-400 hover:text-red-500 transition-colors ml-auto sm:ml-0" title="Remove">
                   <FaTimes size={18} />
                 </button>
               </div>
@@ -126,27 +126,27 @@ const MyPlanPage = () => {
         </div>
 
         {/* Stats Box */}
-        <div className="bg-[#1a1d21] rounded-4xl p-6 md:p-10 mb-8 grid grid-cols-3 gap-4 border border-gray-800">
-          <div className="flex flex-col gap-2 pl-2">
-            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Exercises</p>
-            <h1 className="text-4xl md:text-5xl font-black text-[#c2f800]">{stats.exercises}</h1>
+        <div className="bg-[#1a1d21] rounded-3xl md:rounded-4xl p-4 sm:p-6 md:p-10 mb-8 grid grid-cols-3 gap-2 sm:gap-4 border border-gray-800">
+          <div className="flex flex-col gap-1 sm:gap-2 pl-1 sm:pl-2">
+            <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-semibold">Exercises</p>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#c2f800]">{stats.exercises}</h1>
           </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Minutes</p>
-            <h1 className="text-4xl md:text-5xl font-black text-white">{stats.minutes}</h1>
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-semibold">Minutes</p>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white">{stats.minutes}</h1>
           </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Calories</p>
-            <h1 className="text-4xl md:text-5xl font-black text-white">{stats.calories}</h1>
+          <div className="flex flex-col gap-1 sm:gap-2">
+            <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider font-semibold">Calories</p>
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white">{stats.calories}</h1>
           </div>
         </div>
 
         {/* Tabs and Sort */}
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex space-x-1 bg-[#1a1d21] p-1.5 rounded-full border border-gray-800">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+          <div className="flex w-full sm:w-auto bg-[#1a1d21] p-1.5 rounded-full border border-gray-800">
             <button
               onClick={() => setActiveTab("today")}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+              className={`flex-1 sm:flex-none px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
                 activeTab === "today"
                   ? "bg-[#2a2d32] text-white"
                   : "text-gray-400 hover:text-white"
@@ -156,7 +156,7 @@ const MyPlanPage = () => {
             </button>
             <button
               onClick={() => setActiveTab("saved")}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-200 ${
+              className={`flex-1 sm:flex-none px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all duration-200 ${
                 activeTab === "saved"
                   ? "bg-[#2a2d32] text-white"
                   : "text-gray-400 hover:text-white"
