@@ -6,7 +6,7 @@ import { WorkoutContext } from "@/context/WorkoutContext";
 const SavedPlanStats = () => {
   const { savedWorkout } = useContext(WorkoutContext);
   return (
-    <Link href="#" className="flex items-center gap-3 group">
+    <Link href="/my-plan" className="flex items-center gap-3 group">
       <span className="text-gray-400 text-lg font-medium group-hover:text-gray-300 transition-colors">
         Saved
       </span>

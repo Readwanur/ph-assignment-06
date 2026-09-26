@@ -15,7 +15,7 @@ const getWorkouts = async () => {
 const Workouts = async () => {
     const workoutData: IWorkout[] = await getWorkouts()
   return (
-    <div>
+    <div id="library">
       <div className="max-w-7xl mx-auto m-7">
         <h1 className="text-3xl text-white font-bold">THE LIBRARY</h1>
         <p className="text-[#9ca3af]">

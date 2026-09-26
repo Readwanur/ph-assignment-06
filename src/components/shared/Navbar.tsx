@@ -17,7 +17,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link
-          href="#"
+          href="/my-plan"
           className="flex items-center px-5 py-2 rounded-full text-gray-400 font-medium hover:text-[#c2f800] hover:bg-[#1a2312]/60 transition-colors"
         >
           My Plan

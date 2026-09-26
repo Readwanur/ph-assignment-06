@@ -40,7 +40,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
       <div className="mx-auto max-w-7xl flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
         {/* === LEFT: Image Wrapper === */}
         <div className="w-full lg:w-[45%] shrink-0 relative lg:sticky lg:top-24">
-          <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl">
+          <div className="relative w-full aspect-4/5 rounded-3xl overflow-hidden border border-neutral-800 shadow-2xl">
             <Image
               alt={workout.name}
               src={workout.image}
@@ -88,7 +88,7 @@ const WorkoutDetails = async ({ params }: IWorkoutDetailsProps) => {
               ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-4 hover:bg-white/[0.02] transition-colors rounded-xl"
+                  className="flex items-center justify-between p-4 hover:bg-white/2 transition-colors rounded-xl"
                 >
                   <span className="text-neutral-500 font-bold text-sm tracking-wider">
                     {stat.label}

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import banner from "@/assets/banner.png";
 import Link from "next/link";
-
+import { FaArrowDown } from "react-icons/fa";
 
 const Banner = () => {
   return (
@@ -19,8 +19,8 @@ const Banner = () => {
             <br />
             into today&apos;s plan, and watch the week&apos;s work add up.
           </p>
-          <Link href={`/`}>
-            <button className="btn bg-[#c2f800] text-black">
+          <Link href="#library">
+            <button className="flex items-center gap-2 btn bg-[#c2f800] hover:bg-[#b3e600] text-black border-none px-6 rounded-full font-bold">
               BROWSE WORKOUTS
             </button>
           </Link>
