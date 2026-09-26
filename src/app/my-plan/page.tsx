@@ -48,13 +48,13 @@ const MyPlanPage = () => {
     } else {
       setSavedWorkout(prev => prev.filter(w => w.id !== id));
     }
-    toast.success("Workout marked as done! Great job!");
+    toast.success("Workout marked as done!");
   };
 
   const renderWorkouts = (workouts: IWorkout[]) => {
     if (workouts.length > 0) {
       return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 bg-black">
           {workouts.map((workout: IWorkout, idx: number) => (
             <div key={idx} className="bg-[#1a1d21] rounded-2xl p-4 flex items-center justify-between border border-gray-800">
               <div className="flex items-center space-x-4">
@@ -117,7 +117,7 @@ const MyPlanPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#111315] text-white p-6 md:p-10 flex-1">
+    <div className="min-h-screen bg-[#0c0d10] text-white p-6 md:p-10 flex-1">
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="mb-8">

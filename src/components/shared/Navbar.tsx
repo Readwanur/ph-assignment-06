@@ -39,7 +39,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="sticky top-0 w-full z-50 border-b border-neutral-800 bg-[#0a0a0a]">
+    <div className="sticky top-0 w-full z-50 border-b border-neutral-800 bg-[#0c0d10]">
       <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24">
         {/* === LEFT: Logo & Mobile Menu === */}
         <div className="navbar-start">
